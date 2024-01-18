@@ -55,7 +55,7 @@ class AddStudent extends StatelessWidget {
             });
       },
       icon: const Icon(Icons.add),
-      label: const Text('Add Contact'),
+      label: const Text('Add Contacts'),
     );
   }
   Future<void>addButtonClicked()async{
