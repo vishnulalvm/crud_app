@@ -1,3 +1,5 @@
+import 'package:crud_app/db/db_functions/db_functions.dart';
+import 'package:crud_app/db/models/data_model.dart';
 import 'package:flutter/material.dart';
 
 class AddStudent extends StatelessWidget {
@@ -64,6 +66,7 @@ class AddStudent extends StatelessWidget {
     if(name.isEmpty ||age.isEmpty){
       return;
     }
-    
+    final student =StudentModel(name: name, age: age);
+    addStudent(student);
   }
 }
