@@ -1,3 +1,4 @@
+import 'package:crud_app/db/db_functions/db_functions.dart';
 import 'package:crud_app/widgets/add_student.dart';
 import 'package:crud_app/widgets/student_list.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class HomeScreens extends StatefulWidget {
 class _HomeScreensState extends State<HomeScreens> {
   @override
   Widget build(BuildContext context) {
+    getAllStudents();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,

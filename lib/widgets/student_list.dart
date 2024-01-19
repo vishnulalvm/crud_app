@@ -16,6 +16,9 @@ class StudentList extends StatelessWidget {
           return  ListTile(
             title: Text(data.name),
             subtitle: Text(data.age),
+            trailing: IconButton(onPressed: (){
+              
+            }, icon: const Icon(Icons.delete)),
           );
         },
         separatorBuilder: (ctx, index) {

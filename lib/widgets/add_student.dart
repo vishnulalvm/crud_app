@@ -3,7 +3,7 @@ import 'package:crud_app/db/models/data_model.dart';
 import 'package:flutter/material.dart';
 
 class AddStudent extends StatelessWidget {
-   AddStudent({super.key});
+  AddStudent({super.key});
 
   final _nameController = TextEditingController();
   final _ageController = TextEditingController();
@@ -32,22 +32,21 @@ class AddStudent extends StatelessWidget {
                       TextField(
                         controller: _nameController,
                         decoration: const InputDecoration(
-                            border:
-                                OutlineInputBorder(),
-                                hintText: 'Name'),
+                            border: OutlineInputBorder(), hintText: 'Name'),
                       ),
                       const SizedBox(
                         height: 30,
                       ),
-                       TextField(
-                         controller: _ageController,
+                      TextField(
+                        controller: _ageController,
                         decoration: const InputDecoration(
-                            border:
-                                OutlineInputBorder(),
-                                hintText: 'Age'),
+                            border: OutlineInputBorder(), hintText: 'Age'),
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          addButtonClicked();
+                          Navigator.pop(context);
+                        },
                         child: const Text('Add contact'),
                       ),
                     ],
@@ -57,16 +56,18 @@ class AddStudent extends StatelessWidget {
             });
       },
       icon: const Icon(Icons.add),
-      label: const Text('Add Contacts'),
+      label: const Text('New Contacts'),
     );
   }
-  Future<void>addButtonClicked()async{
-    final name =_nameController.text.trim();
+
+  Future<void> addButtonClicked() async {
+    final name = _nameController.text.trim();
     final age = _ageController.text.trim();
-    if(name.isEmpty ||age.isEmpty){
-      return;
+    if (_nameController.text.isNotEmpty) {
+      _nameController.clear();
+      _ageController.clear();
     }
-    final student =StudentModel(name: name, age: age);
+    final student = StudentModel(name: name, age: age);
     addStudent(student);
   }
 }
